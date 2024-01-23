@@ -21,7 +21,12 @@ class _ExpencesState extends State<Expences> {
         title: "Carrot",
         amount: 2500.00,
         date: DateTime.now(),
-        category: Category.food)
+        category: Category.food),
+    ExpenceModel(
+        title: "Car",
+        amount: 2500.00,
+        date: DateTime.now(),
+        category: Category.travel),
   ];
 
   @override
@@ -45,11 +50,17 @@ class _ExpencesState extends State<Expences> {
             ),
           ],
         ),
-        body: ListView.builder(
-          itemCount: _expenceList.length,
-          itemBuilder: (context, index) {
-            return Text(_expenceList[index].title);
-          },
+        body: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: _expenceList.length,
+                itemBuilder: (context, index) {
+                  return Text(_expenceList[index].title);
+                },
+              ),
+            ),
+          ],
         ));
   }
 }
